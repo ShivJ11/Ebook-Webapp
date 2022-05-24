@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false"%>
+
 <div class="container-fluid"
 	style="height: 5px; background-color: #303f9f"></div>
 
@@ -16,12 +19,25 @@
 				<button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
 			</form>
 		</div>
-		<div class="col-md-3">
-			<a href="login.jsp" class="btn btn-success"><i
-				class="fa-solid fa-arrow-right-to-bracket"></i>  Login</a> <a
-				href="register.jsp" class="btn btn-primary text-white"><i
-				class="fa-solid fa-user-pen"></i> Register</a>
-		</div>
+
+		<c:if test="${not empty userobj }">
+			<div class="col-md-3">
+				<a href="checkout.jsp" class="btn btn-primary ml-4"><i class="fa-solid fa-cart-plus"></i> Cart</a> <a
+					href="login.jsp" class="btn btn-success"><i
+					class="fa-solid fa-user-check"></i> ${userobj.name}</a> <a
+					href="logout" class="btn btn-primary text-white"><i
+					class="fa-solid fa-arrow-right-to-bracket"></i> Logout</a>
+			</div>
+		</c:if>
+
+		<c:if test="${empty userobj }">
+			<div class="col-md-3">
+				<a href="login.jsp" class="btn btn-success"><i
+					class="fa-solid fa-arrow-right-to-bracket"></i> Login</a> <a
+					href="register.jsp" class="btn btn-primary text-white"><i
+					class="fa-solid fa-user-pen"></i> Register</a>
+			</div>
+		</c:if>
 
 	</div>
 </div>
@@ -38,17 +54,20 @@
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active"><a class="nav-link" href="#"><i
+			<li class="nav-item active"><a class="nav-link" href="index.jsp"><i
 					class="fa-solid fa-house-user"></i> Home<span class="sr-only">(current)</span>
 			</a></li>
-			<li class="nav-item active"><a class="nav-link" href="#"><i
+			<li class="nav-item active"><a class="nav-link"
+				href="all_recent_book.jsp"><i
 					class="fa-solid fa-book-open-reader"></i> Recent Book</a></li>
 
-			<li class="nav-item active"><a class="nav-link" href="#"><i
-					class="fa-solid fa-book-medical"></i> New Book</a></li>
+			<li class="nav-item active"><a class="nav-link"
+				href="all_new_book.jsp"><i class="fa-solid fa-book-medical"></i>
+					New Book</a></li>
 
 			<li class="nav-item active"><a class="nav-link disabled"
-				href="#"><i class="fa-solid fa-book"></i> Old Book</a></li>
+				href="all_old_book.jsp"><i class="fa-solid fa-book"></i> Old
+					Book</a></li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
 			<button class="btn btn-light my-2 my-sm-0" type="submit">

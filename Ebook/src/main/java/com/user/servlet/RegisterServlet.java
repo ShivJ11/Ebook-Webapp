@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/register")
 
@@ -25,7 +26,7 @@ public class RegisterServlet extends HttpServlet{
 			String password=req.getParameter("password");
 			String check=req.getParameter("check");
 			
-			System.out.print(name+" "+email+" "+phno+" "+password+" "+check);
+//			System.out.print(name+" "+email+" "+phno+" "+password+" "+check);
 			
 			User us=new User();
 			us.setName(name);
@@ -33,14 +34,29 @@ public class RegisterServlet extends HttpServlet{
 			us.setPhno(phno);
 			us.setPassword(password);
 			
-			UserDAOImpl dao=new UserDAOImpl(DBconnect.getConn());
-			boolean f=dao.userRegister(us);
-			if(f) {
-				System.out.print("User Registered Successfully");
+			HttpSession session=req.getSession();
+			
+			if(check!=null) {
+				UserDAOImpl dao=new UserDAOImpl(DBconnect.getConn());
+				boolean f=dao.userRegister(us);
+				if(f) {
+//					System.out.print("User Registered Successfully");
+					session.setAttribute("succMsg", "Registration Successfull.");
+					resp.sendRedirect("register.jsp");
+				}
+				else {
+//					System.out.print("Error!!!");
+					session.setAttribute("failedMsg", "Error While Registering!!!");
+					resp.sendRedirect("register.jsp");
+				}
+				
 			}
 			else {
-				System.out.print("Error!!!");
-			}
+//				System.out.print("Please Agree the Terms & Conditions");	
+				session.setAttribute("failedMsg", "Please Agree the Terms & Conditions.");
+				resp.sendRedirect("register.jsp");
+				}
+			
 			
 		}
 		catch(Exception e){

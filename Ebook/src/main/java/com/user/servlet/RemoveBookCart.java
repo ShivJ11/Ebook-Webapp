@@ -19,8 +19,9 @@ public class RemoveBookCart extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int bid=Integer.parseInt(req.getParameter("bid"));
 		int uid=Integer.parseInt(req.getParameter("uid"));
+		int cid=Integer.parseInt(req.getParameter("cid"));
 		CartDAOImpl dao=new CartDAOImpl(DBconnect.getConn());
-		boolean f=dao.deletebook(bid,uid);
+		boolean f=dao.deletebook(bid,uid,cid);
 		HttpSession session=req.getSession();
 		
 		if(f) {

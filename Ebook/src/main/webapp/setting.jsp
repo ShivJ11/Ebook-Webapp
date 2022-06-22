@@ -68,30 +68,16 @@ a:hover {
 								<div class="text-primary">
 									<i class="fa-solid fa-user-pen fa-3x"></i>
 								</div>
-								<h3>Login & Security(Edit Profile)</h3>
+								<h3>Edit Profile</h3>
 							</div>
 						</div>
 					</a>
 				</div>
 			</div>
 
-			<div class="col-md-4 mt-3">
-				<div>
-					<a href="user_address.jsp">
-						<div class="card">
-							<div class="card-body text-center ">
-								<div class="text-warning">
-									<i class="fa-solid fa-location-dot fa-3x"></i>
-								</div>
-								<h3>Your Address</h3>
-								<p>Edit Address</p>
-							</div>
-						</div>
-					</a>
-				</div>
-			</div>
+			
 
-			<div class="col-md-4 mt-3">
+			<div class="col-md-6 mt-3">
 				<div>
 					<a href="order.jsp">
 						<div class="card">
@@ -107,7 +93,7 @@ a:hover {
 				</div>
 			</div>
 
-			<div class="col-md-4 mt-3">
+			<div class="col-md-6 mt-3">
 				<div>
 					<a href="helpline.jsp">
 						<div class="card">

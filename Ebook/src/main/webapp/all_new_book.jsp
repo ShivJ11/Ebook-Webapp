@@ -136,5 +136,6 @@ to {
 		</div>
 
 	</div>
+	<%@include  file="chatIndex.jsp" %>
 </body>
 </html>

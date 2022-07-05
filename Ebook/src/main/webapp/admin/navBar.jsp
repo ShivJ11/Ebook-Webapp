@@ -4,7 +4,7 @@
 <div class="container-fluid"
 	style="height: 5px; background-color: #303f9f"></div>
 
-<div class="container-fluid p-2">
+<div class="container-fluid p-2 ">
 	<div class="row">
 		<div class="col-md-3 text-success">
 
@@ -13,28 +13,27 @@
 			</h3>
 		</div>
 
-		<div class="col-md-3">
-			<c:if test="${not empty userobj}">
-				<a class="btn btn-success text-white"><i class="fa-solid fa-user"></i>
-					${userobj.name}</a>
-				<a data-toggle="modal" data-target="#exampleModalCenter"
+		<c:if test="${not empty userobj}">
+			<div class="col-md-3 text-right">
+				<a class="btn btn-success text-white text-right"><i
+					class="fa-solid fa-user"></i> ${userobj.name}</a> <a
+					data-toggle="modal" data-target="#exampleModalCenter"
 					class="btn btn-danger text-white"><i
 					class="fa-solid fa-arrow-right-to-bracket"></i> Logout</a>
-			</c:if>
+			</div>
+		</c:if>
 
-			<c:if test="${empty userobj }">
+		<c:if test="${empty userobj }">
+			<div class="col-md-3 text-right">
 				<a href="../login.jsp" class="btn btn-success"><i
-					class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
-				<a href="../register.jsp" class="btn btn-primary text-white"><i
+					class="fa-solid fa-arrow-right-to-bracket"></i> Login</a> <a
+					href="../register.jsp" class="btn btn-primary text-white"><i
 					class="fa-solid fa-user-pen"></i> Register</a>
-			</c:if>
-
-
-		</div>
+			</div>
+		</c:if>
 
 	</div>
 </div>
-
 
 <!-- logout modal -->
 <!-- Modal -->

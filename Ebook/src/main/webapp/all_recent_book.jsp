@@ -1,3 +1,4 @@
+<%@page import="com.entity.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="com.entity.BookDtls"%>
@@ -19,6 +20,9 @@
 
 </head>
 <body>
+<%
+	User u = (User) session.getAttribute("userobj");
+	%>
 	<%@include file="all_Components/navBar.jsp"%>
 	<div class="container">
 		<div class="row">
@@ -56,7 +60,17 @@
 						Category :
 						<%=b.getBookCategory()%></p>
 						<div class="row">
-							<a href="" class="btn btn-danger btn-sm ml-1">Add to Cart</a> <a
+							<%
+							if (u == null) {
+							%>
+							<a href="login.jsp" class="btn btn-danger btn-sm">Add to Cart</a>
+							<%
+							} else {
+							%>
+							<a href="cart?bid=<%=b.getBookId() %>&&uid=<%=u.getId() %>" class="btn btn-danger btn-sm">Add to Cart</a>
+							<%
+							}
+							%> <a
 								href="view_books.jsp?bid=<%=b.getBookId()%>"
 								class="btn btn-success btn-sm ml-1">View Details</a> <a href=""
 								class="btn btn-danger btn-sm ml-1"><i
@@ -78,5 +92,6 @@
 		</div>
 
 	</div>
+	<%@include  file="chatIndex.jsp" %>
 </body>
 </html>

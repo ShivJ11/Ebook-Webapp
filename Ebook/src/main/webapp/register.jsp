@@ -79,6 +79,7 @@
 		</div>
 	</div>
 	</h6>
+	<%@include  file="chatIndex.jsp" %>
 	<%@include file="all_Components/footer2bg.jsp"%>
 </body>
 </html>

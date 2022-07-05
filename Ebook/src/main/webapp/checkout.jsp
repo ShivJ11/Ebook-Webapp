@@ -91,12 +91,12 @@
 								<div class="form-group col-md-6">
 									<label for="inputEmail4">Name</label> <input type="text"
 										name="username" class="form-control" id="inputEmail4"
-										value="<%=u.getName()%>" readonly="readonly">
+										value="<%=u.getName()%>" readonly="readonly" required>
 								</div>
 								<div class="form-group col-md-6">
 									<label for="inputPassword4">Email</label> <input type="email"
 										name="email" class="form-control" id="inputPassword4"
-										value="<%=u.getEmail()%>" readonly="readonly">
+										value="<%=u.getEmail()%>" readonly="readonly" required>
 								</div>
 							</div>
 
@@ -104,33 +104,33 @@
 								<div class="form-group col-md-6">
 									<label for="inputEmail4">Contact</label> <input type="number"
 										name="phno" class="form-control" id="inputEmail4"
-										value="<%=u.getPhno()%>" readonly="readonly">
+										value="<%=u.getPhno()%>" readonly="readonly" required>
 								</div>
 								<div class="form-group col-md-6">
 									<label for="inputPassword4">Address</label> <input type="text"
-										name="address" class="form-control" id="inputPassword4">
+										name="address" class="form-control" id="inputPassword4" required>
 								</div>
 							</div>
 
 							<div class="form-row">
 								<div class="form-group col-md-6">
 									<label for="inputEmail4">Landmark</label> <input type="text"
-										name="landmark" class="form-control" id="inputEmail4">
+										name="landmark" class="form-control" id="inputEmail4" required>
 								</div>
 								<div class="form-group col-md-6">
 									<label for="inputPassword4">City</label> <input type="text"
-										name="city" class="form-control" id="inputPassword4">
+										name="city" class="form-control" id="inputPassword4" required>
 								</div>
 							</div>
 
 							<div class="form-row">
 								<div class="form-group col-md-6">
 									<label for="inputEmail4">State</label> <input type="text"
-										name="state" class="form-control" id="inputEmail4">
+										name="state" class="form-control" id="inputEmail4" required>
 								</div>
 								<div class="form-group col-md-6">
 									<label for="inputPassword4">ZIP</label> <input type="number"
-										name="pincode" class="form-control" id="inputPassword4">
+										name="pincode" class="form-control" id="inputPassword4" required>
 								</div>
 							</div>
 

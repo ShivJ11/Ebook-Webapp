@@ -111,6 +111,7 @@ a:hover {
 
 		</div>
 	</div>
+	<%@include  file="chatIndex.jsp" %>
 	<div style="margin-top: 120px;">
 		<%@include file="all_Components/footer.jsp"%>
 	</div>

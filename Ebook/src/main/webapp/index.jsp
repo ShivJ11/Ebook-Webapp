@@ -27,15 +27,14 @@
 </style>
 </head>
 <body>
-
 	<%
 	User u = (User) session.getAttribute("userobj");
 	%>
 	<%@include file="all_Components/navBar.jsp"%>
+
 	<div class="container-fluid back-img">
 		<h2 class="text-center text-white">EBook</h2>
 	</div>
-
 
 	<!-- Start Recent Book -->
 
@@ -75,20 +74,20 @@
 						Category :
 						<%=b.getBookCategory()%></p>
 						<div class="row">
-						
-						<%
+
+							<%
 							if (u == null) {
 							%>
 							<a href="login.jsp" class="btn btn-danger btn-sm">Add to Cart</a>
 							<%
 							} else {
 							%>
-							<a href="cart?bid=<%=b.getBookId() %>&&uid=<%=u.getId() %>" class="btn btn-danger btn-sm">Add to Cart</a>
+							<a href="cart?bid=<%=b.getBookId()%>&&uid=<%=u.getId()%>"
+								class="btn btn-danger btn-sm">Add to Cart</a>
 							<%
 							}
 							%>
-							 <a
-								href="view_books.jsp?bid=<%=b.getBookId()%>"
+							<a href="view_books.jsp?bid=<%=b.getBookId()%>"
 								class="btn btn-success btn-sm ml-1">View Details</a> <a href=""
 								class="btn btn-danger btn-sm ml-1"><i
 								class="fa-solid fa-indian-rupee-sign"></i> <%=b.getPrice()%></a>
@@ -148,7 +147,8 @@
 							<%
 							} else {
 							%>
-							<a href="cart?bid=<%=b.getBookId() %>&&uid=<%=u.getId() %>" class="btn btn-danger btn-sm">Add to Cart</a>
+							<a href="cart?bid=<%=b.getBookId()%>&&uid=<%=u.getId()%>"
+								class="btn btn-danger btn-sm">Add to Cart</a>
 							<%
 							}
 							%>
@@ -192,7 +192,6 @@
 			List<BookDtls> list3 = dao3.getOldBook();
 			for (BookDtls b : list3) {
 			%>
-
 			<div class="col-md-3">
 				<div class="card crd-ho">
 					<div class="card-body text-center">
@@ -225,7 +224,15 @@
 		</div>
 	</div>
 	<!-- End Old Book -->
+	<%
+	if (u == null) {
+	%>
+<%@include file="popupIndex.jsp"%>
+ 	<%
+	}
+	%>
 
+	<%@include file="chatIndex.jsp"%>
 	<%@include file="all_Components/footer.jsp"%>
 </body>
 </html>

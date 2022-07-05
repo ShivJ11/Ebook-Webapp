@@ -14,10 +14,10 @@
 		<h2>Your Order Placed Successfully</h2>
 		<h5>Within 7 working days your order will be Delivered</h5>
 		<a href="index.jsp" class="btn btn-primary mt-3">Home</a>
-		<a href="" class="btn btn-success mt-3">View Order</a>
+		<a href="order.jsp" class="btn btn-success mt-3">View Order</a>
 	
 	</div>
 	
-	
+	<%@include  file="chatIndex.jsp" %>
 </body>
 </html>

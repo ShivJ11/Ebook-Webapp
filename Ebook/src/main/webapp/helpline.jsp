@@ -22,6 +22,7 @@
 			</div>
 		</div>
 	</div>
+	<%@include  file="chatIndex.jsp" %>
 	<div style="margin-top: 155px;">
 		<%@include file="all_Components/footer.jsp"%>
 	</div>

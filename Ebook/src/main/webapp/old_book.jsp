@@ -59,5 +59,6 @@
 			</tbody>
 		</table>
 	</div>
+	<%@include  file="chatIndex.jsp" %>
 </body>
 </html>

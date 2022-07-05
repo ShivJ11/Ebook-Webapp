@@ -70,7 +70,7 @@
 	</div>
 
 
-
+<%@include  file="chatIndex.jsp" %>
 	<%@include file="all_Components/footer.jsp"%>
 
 </body>

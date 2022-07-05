@@ -13,25 +13,26 @@
 			</h3>
 		</div>
 		<div class="col-md-6">
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search"
+			<form class="form-inline my-2 my-lg-0" action="search.jsp" method="post">
+				<input class="form-control mr-sm-2" type="search" name="ch"
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
 			</form>
 		</div>
 
 		<c:if test="${not empty userobj }">
-			<div class="col-md-3">
-				<a href="checkout.jsp" class="btn btn-primary ml-4"><i class="fa-solid fa-cart-plus"></i> Cart</a> <a
-					href="login.jsp" class="btn btn-success"><i
-					class="fa-solid fa-user-check"></i> ${userobj.name}</a> <a
-					href="logout" class="btn btn-primary text-white"><i
+			<div class="col-md-3 text-right">
+				<a href="checkout.jsp" class="btn btn-primary ml-4"><i
+					class="fa-solid fa-cart-plus"></i> Cart</a> <a href=""
+					class="btn btn-success"><i class="fa-solid fa-user-check"></i>
+					${userobj.name}</a> <a href="logout" class="btn btn-primary text-white"><i
 					class="fa-solid fa-arrow-right-to-bracket"></i> Logout</a>
+
 			</div>
 		</c:if>
 
 		<c:if test="${empty userobj }">
-			<div class="col-md-3">
+			<div class="col-md-3 text-right ">
 				<a href="login.jsp" class="btn btn-success"><i
 					class="fa-solid fa-arrow-right-to-bracket"></i> Login</a> <a
 					href="register.jsp" class="btn btn-primary text-white"><i
@@ -70,12 +71,12 @@
 					Book</a></li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
-			<a href="setting.jsp" class="btn btn-light my-2 my-sm-0" type="submit">
-				<i class="fa-solid fa-gear"></i> Setting
+			<a href="setting.jsp" class="btn btn-light my-2 my-sm-0"
+				type="submit"> <i class="fa-solid fa-gear"></i> Setting
 			</a>
-			<button class="btn btn-light my-2 my-sm-0 ml-2" type="submit">
+			<a href="helpline.jsp" class="btn btn-light my-2 my-sm-0 ml-2">
 				<i class="fa-solid fa-phone"></i> Contact Us
-			</button>
+			</a>
 		</form>
 	</div>
 </nav>

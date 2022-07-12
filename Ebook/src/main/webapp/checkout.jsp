@@ -27,7 +27,7 @@
 		<div class="alert alert-success" role="alert">${succMsg }</div>
 		<c:remove var="succMsg" scope="session" />
 	</c:if>
-
+	
 	<c:if test="${not empty failed }">
 		<div class="alert alert-danger text-center" role="alert">${failed }</div>
 		<c:remove var="failed" scope="session" />
@@ -108,35 +108,37 @@
 								</div>
 								<div class="form-group col-md-6">
 									<label for="inputPassword4">Address</label> <input type="text"
-										name="address" class="form-control" id="inputPassword4" required>
+										name="address" class="form-control" id="inputAddress4"
+										required>
 								</div>
 							</div>
 
 							<div class="form-row">
 								<div class="form-group col-md-6">
 									<label for="inputEmail4">Landmark</label> <input type="text"
-										name="landmark" class="form-control" id="inputEmail4" required>
+										name="landmark" class="form-control" id="inputLandmark4"
+										required>
 								</div>
 								<div class="form-group col-md-6">
 									<label for="inputPassword4">City</label> <input type="text"
-										name="city" class="form-control" id="inputPassword4" required>
+										name="city" class="form-control" id="inputCity4" required>
 								</div>
 							</div>
 
 							<div class="form-row">
 								<div class="form-group col-md-6">
 									<label for="inputEmail4">State</label> <input type="text"
-										name="state" class="form-control" id="inputEmail4" required>
+										name="state" class="form-control" id="inputState4" required>
 								</div>
 								<div class="form-group col-md-6">
 									<label for="inputPassword4">ZIP</label> <input type="number"
-										name="pincode" class="form-control" id="inputPassword4" required>
+										name="pincode" class="form-control" id="inputZip4" required>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label>Payment Method</label> <select class="form-control"
-									name="payment">
+									name="payment" id="inputPm4">
 									<option value="noselect">--Select--</option>
 									<option value="cod">Cash on Delivery</option>
 								</select>
@@ -155,5 +157,15 @@
 
 		</div>
 	</div>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="savy.min.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			$('.form-control').savy('load');
+
+		})
+	</script>
+
 </body>
 </html>

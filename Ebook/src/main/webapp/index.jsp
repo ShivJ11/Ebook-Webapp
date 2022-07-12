@@ -39,7 +39,7 @@
 	<!-- Start Recent Book -->
 
 	<div class="container">
-		<h3 class="text-center">Recent Books</h3>
+		<h3 class="text-center">All Books</h3>
 		<div class="row">
 			<%
 			BookDAOImpl dao2 = new BookDAOImpl(DBconnect.getConn());

@@ -3,6 +3,8 @@ package com.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -423,5 +425,56 @@ public class BookDAOImpl implements BookDAO {
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	
+	private int noOfRecords;
+	@Override
+	public List<BookDtls> paginationAllBooks(int offset, int noOfRecords) {
+		String sql = "select SQL_CALC_FOUND_ROWS * from book_details limit " + offset + ", " + noOfRecords;
+		List<BookDtls> list = new ArrayList<BookDtls>();
+		BookDtls b = null;
+		Statement ps ;
+		try {
+			ps = conn.createStatement();
+			ResultSet rs = ps.executeQuery(sql);
+			while (rs.next()) {
+				b = new BookDtls();
+				b.setBookId(rs.getInt(1));
+				b.setBookName(rs.getString(2));
+				b.setAuthor(rs.getString(3));
+				b.setPrice(rs.getString(4));
+				b.setBookCategory(rs.getString(5));
+				b.setStatus(rs.getString(6));
+				b.setPhotoName(rs.getString(7));
+				b.setEmail(rs.getString(8));
+				list.add(b);
+
+			}
+			rs.close();
+            rs = ps.executeQuery("SELECT FOUND_ROWS()");
+  
+            if (rs.next())
+               this.noOfRecords = rs.getInt(1);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally
+        {
+            try {
+                if (conn != null)
+                    conn.close();
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+		return list;
+	}
+
+	@Override
+	public int getNoOfRecords() {
+		return noOfRecords;
 	}
 }
